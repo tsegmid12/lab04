@@ -53,8 +53,10 @@ public class IntQueueTest {
     @Test
     public void testNotEmpty() {
         // TODO: write your own unit test
-        mQueue.enqueue(10);
-        assertFalse(mQueue.isEmpty());
+        for (Integer i : testList) {
+            mQueue.enqueue(i);
+            assertFalse(mQueue.isEmpty());
+        }
     }
 
     @Test
