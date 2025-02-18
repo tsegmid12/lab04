@@ -63,7 +63,7 @@ public class ArrayIntQueue implements IntQueue {
     }
 
     /** {@inheritDoc} */
-    public boolean enqueue(Integer value) {
+    public boolean enqueue(final Integer value) {
         ensureCapacity();
         int tail = (head + size) % elementData.length;
         elementData[tail] = value;
@@ -73,7 +73,7 @@ public class ArrayIntQueue implements IntQueue {
 
     /** {@inheritDoc} */
     public boolean isEmpty() {
-        return size >= 0;
+        return size == 0;
     }
 
     /** {@inheritDoc} */

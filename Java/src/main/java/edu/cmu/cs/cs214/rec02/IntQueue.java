@@ -18,16 +18,16 @@ public interface IntQueue {
     /**
      * Fetch and remove the element at the head of the queue.
      *
-     * @return 	The element at the head of the queue. Returns
-     * 			null if the queue is empty.
+     * @return The element at the head of the queue. Returns
+     * null if the queue is empty.
      */
     Integer dequeue();
 
     /**
      * Add the element to the tail of the queue.
      *
-     * @param value	The element to place at the tail of the queue.
-     * @return 		Whether the element was enqueued successfully.
+     * @param value
+     * @return Whether the element was enqueued successfully.
      */
     boolean enqueue(Integer value);
 
@@ -42,7 +42,7 @@ public interface IntQueue {
      * Fetch the element at the head of the queue.
      *
      * @return The element at the head of the queue. Returns null if queue
-     * 		   is empty.
+     * is empty.
      */
     Integer peek();
 

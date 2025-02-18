@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 import static org.junit.Assert.*;
@@ -38,8 +39,8 @@ public class IntQueueTest {
     @Before
     public void setUp() {
         // comment/uncomment these lines to test each class
-        mQueue = new LinkedIntQueue();
-    //    mQueue = new ArrayIntQueue();
+        // mQueue = new LinkedIntQueue();
+           mQueue = new ArrayIntQueue();
 
         testList = new ArrayList<>(List.of(1, 2, 3));
     }
@@ -69,11 +70,16 @@ public class IntQueueTest {
     }
 
     @Test
-    public void testPeekEmptyQueue() {
-        // TODO: write your own unit test
-        assertNull(mQueue.peek());
+public void testPeekEmptyQueue() {
+   
+        mQueue.peek();  // Try calling peek() on an empty queue
+}
 
-    }
+
+    // @Test
+    // public void testPeekEmptyQueue() {
+    //     assertNull(mQueue.peek());
+    // }
 
     @Test
     public void testEnqueue() {
@@ -88,12 +94,42 @@ public class IntQueueTest {
     @Test
     public void testDequeue() {
         // TODO: write your own unit test
-        for (Integer i : testList) {
+            for (int i = 0; i < testList.size(); i++) {
             mQueue.enqueue(i);
+            assertFalse(mQueue.isEmpty());
             assertEquals(Integer.valueOf(i), mQueue.dequeue());
-
-        }
+            }
+            assertTrue(mQueue.isEmpty());
     }
+
+    @Test
+    public void testClear() {
+    mQueue.enqueue(1);
+    mQueue.enqueue(2);
+    mQueue.enqueue(3);
+    
+    mQueue.clear();  // Clear the queue
+    
+    assertTrue(mQueue.isEmpty());  // Ensure the queue is empty after clear
+    assertEquals(0, mQueue.size());  // Ensure the size is reset to 0
+}
+
+@Test
+public void testDequeueEmptyQueue() {
+    assertNull(mQueue.dequeue());  // Dequeue on an empty queue should return null
+}
+
+    @Test
+    public void testEnsureCapacity() {
+    for (int i = 0; i < 20; i++) {
+        mQueue.enqueue(i);  // Add elements to trigger resizing
+    }
+    
+    assertEquals(20, mQueue.size());  // Check that the queue contains 20 elements
+    assertFalse(mQueue.isEmpty());   // Ensure the queue is not empty
+}
+
+
 
     @Test
     public void testContent() throws IOException {
