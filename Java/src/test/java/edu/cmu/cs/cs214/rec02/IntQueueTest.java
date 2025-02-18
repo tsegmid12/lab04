@@ -124,11 +124,11 @@ public class IntQueueTest {
      */
     @Test
     public void testEnsureCapacity() {
-    for (int i = 0; i < testList.size(); i++) {
-        mQueue.enqueue(testList.get(i));
+    for (int i = 0; i < 20; i++) {
+        mQueue.enqueue(i);
 
     }
-    assertEquals(testList.size(), mQueue.size());
+    assertEquals(20, mQueue.size());
     assertFalse(mQueue.isEmpty());
 }
 
