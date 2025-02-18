@@ -35,8 +35,8 @@ public class IntQueueTest {
     @Before
     public void setUp() {
         // comment/uncomment these lines to test each class
-        mQueue = new LinkedIntQueue();
-        // mQueue = new ArrayIntQueue();
+        // mQueue = new LinkedIntQueue();
+        mQueue = new ArrayIntQueue();
 
         final int num1 = 1;
         final int num2 = 2;
@@ -67,7 +67,7 @@ public class IntQueueTest {
      */
     @Test
     public void testPeekEmptyQueue() {
-        assertNull(mQueue.peek());
+       assertNull(mQueue.peek());
     }
 
     /**
@@ -103,6 +103,31 @@ public class IntQueueTest {
             mQueue.enqueue(testList.get(i));
             assertEquals(testList.get(i), mQueue.dequeue());
         }
+    }
+
+    /**
+     * Testing.
+     */
+    @Test
+    public void testClear() {
+        for (int i = 0; i < testList.size(); i++) {
+            mQueue.enqueue(testList.get(i));
+        }
+        mQueue.clear();
+
+        assertTrue(mQueue.isEmpty());
+        assertEquals(0, mQueue.size());
+    }
+
+    /**
+     * testing size.
+     */
+    @Test
+    public void testSize() {
+        for (int i = 0; i < testList.size(); i++) {
+            mQueue.enqueue(testList.get(i));
+        }
+        assertEquals(testList.size(), mQueue.size());
     }
 
     /**
