@@ -3,11 +3,9 @@ package edu.cmu.cs.cs214.rec02;
 import java.util.Arrays;
 
 /**
- * A resizable-array implementation of the {@link IntQueue} interface. The head of
  * the queue starts out at the head of the array, allowing the queue to grow and
  * shrink in constant time.
  *
- * TODO: This implementation contains three bugs! Use your tests to determine the
  * source of the bugs and correct them!
  *
  * @author Alex Lockwood
@@ -16,22 +14,22 @@ import java.util.Arrays;
 public class ArrayIntQueue implements IntQueue {
 
     /**
-     * An array holding this queue's data
+     * An array holding this queue's data.
      */
     private int[] elementData;
 
     /**
-     * Index of the next dequeue-able value
+     * Index of the next dequeue-able value.
      */
     private int head;
 
     /**
-     * Current size of queue
+     * Current size of queue.
      */
     private int size;
 
     /**
-     * The initial size for new instances of ArrayQueue
+     * The initial size for new instances of ArrayQueue.
      */
     private static final int INITIAL_SIZE = 10;
 
@@ -73,7 +71,7 @@ public class ArrayIntQueue implements IntQueue {
 
     /** {@inheritDoc} */
     public boolean isEmpty() {
-        return size == 0;
+        return size >= 0;
     }
 
     /** {@inheritDoc} */
