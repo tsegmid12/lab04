@@ -125,11 +125,11 @@ public class IntQueueTest {
     @Test
     public void testEnsureCapacity() {
     for (int i = 0; i < testList.size(); i++) {
-        mQueue.enqueue(testList.get(i));  // Add elements to trigger resizing
-    }
+        mQueue.enqueue(testList.get(i));
 
-    assertEquals(testList.size(), mQueue.size());  // Check that the queue contains 20 elements
-    assertFalse(mQueue.isEmpty());   // Ensure the queue is not empty
+    }
+    assertEquals(testList.size(), mQueue.size());
+    assertFalse(mQueue.isEmpty());
 }
 
     /**
