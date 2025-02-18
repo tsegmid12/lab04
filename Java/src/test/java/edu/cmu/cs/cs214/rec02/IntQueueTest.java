@@ -123,11 +123,21 @@ public class IntQueueTest {
      * testing size.
      */
     @Test
-    public void testSize() {
-        for (int i = 0; i < testList.size(); i++) {
-            mQueue.enqueue(testList.get(i));
-        }
-        assertEquals(testList.size(), mQueue.size());
+    public void testEnsureCapacity() {
+    for (int i = 0; i < testList.size(); i++) {
+        mQueue.enqueue(testList.get(i));  // Add elements to trigger resizing
+    }
+
+    assertEquals(testList.size(), mQueue.size());  // Check that the queue contains 20 elements
+    assertFalse(mQueue.isEmpty());   // Ensure the queue is not empty
+}
+
+    /**
+     * test.
+     */
+    @Test
+    public void testEmptyDeqeue() {
+        assertNull(mQueue.dequeue());
     }
 
     /**
